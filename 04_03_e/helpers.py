@@ -9,7 +9,6 @@ import re
 from schema import ResearchOutput
 from pydantic import ValidationError
 
-
 # ---------------------------------------------------------------------------
 # Pretty Print Helper
 # ---------------------------------------------------------------------------

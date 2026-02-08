@@ -15,6 +15,7 @@ from dotenv import load_dotenv, find_dotenv
 from agents import Agent, Runner, ModelSettings, SQLiteSession  # add SQLiteSession
 from pathlib import Path
 
+from pydantic import ValidationError
 from schema import ResearchOutput
 from helpers import ( 
     print_fields, 
