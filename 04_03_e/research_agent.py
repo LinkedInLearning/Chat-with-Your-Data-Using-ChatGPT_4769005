@@ -132,6 +132,7 @@ async def chat_loop(session: SQLiteSession) -> None:
                 "Summarize the strongest hypothesis so far.\n"
                 "What should we investigate next and why?\n"
                 "Run a quick pattern scan on this snippet: qo aiin chedy qo...\n"
+                "What types of plants do you see?\n"
             )
             continue
 
