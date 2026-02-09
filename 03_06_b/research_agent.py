@@ -107,7 +107,13 @@ async def main():
         print_fields(scan_result.final_output)
 
         # Simulated transcription snippet 
-        simulated_transcription = "qo aiin chedy qo daiin chedy ol qo chedy aiin qo chedy chedy ol"
+        # Create a simulated translation using this mappings of Voynich symbols to English
+        # "qo": "the"
+        # "aiin": "and"
+        # "chedy": "plant"
+        # "daiin": "of"
+        # "ol": "to"
+        # simulated_transcription = ""
 
         tool_prompt = (
             "I’m going to give you a simulated transcription snippet from one region of the chapter.\n\n"
