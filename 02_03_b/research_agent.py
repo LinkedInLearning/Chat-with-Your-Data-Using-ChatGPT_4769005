@@ -44,7 +44,8 @@ mission_text = MISSION_PATH.read_text().strip()
 # Create the Voynich Research Agent
 # ---------------------------------------------------------------------------
 voynich_agent = Agent(
-    name="Voynich Research Agent",
+    # TODO: Give your base agent a name
+    #name="",
     model=#TODO: Select the model,
     instructions=(
         f"{mission_text}\n\n"
@@ -56,7 +57,8 @@ voynich_agent = Agent(
         '"next_steps": ["string"]'
         '}'
     ),
-    output_type=ResearchOutput,
+    # TODO: Attach the ResearchOutput schema to your agent
+    # output_type=
     model_settings=ModelSettings(
         reasoning={"effort": "medium"},          # minimal | low | medium | high
         extra_body={"text": {"verbosity": "low"}}  # low | medium | high
