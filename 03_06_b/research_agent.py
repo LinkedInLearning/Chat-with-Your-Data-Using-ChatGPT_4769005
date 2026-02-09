@@ -106,6 +106,7 @@ async def main():
         )
         print_fields(scan_result.final_output)
 
+        # TODO: Provide the agent with a small transcription snippet
         # Simulated transcription snippet 
         # Create a simulated translation using this mappings of Voynich symbols to English
         # "qo": "the"

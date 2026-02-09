@@ -133,7 +133,7 @@ def _normalize_tokens(text: str) -> List[str]:
     tokens = [t.lower() for t in cleaned.split() if t.strip()]
     return tokens
 
-@function_tool
+#TODO: Register this function as a tool
 def pattern_analyzer(transcription: str, top_k: int = 10, ngram_size: int = 2) -> Dict[str, Any]:
     """
     Analyze a transcription for repeated token and n-gram patterns.
@@ -166,7 +166,7 @@ def pattern_analyzer(transcription: str, top_k: int = 10, ngram_size: int = 2) -
 # ---------------------------------------------------------------------------
 # Custom Tool 2: Translator (toy substitution)
 # ---------------------------------------------------------------------------
-@function_tool
+#TODO: Register this function as a tool
 def translator(transcription: str, mapping_json: str = "") -> Dict:
     default_mapping = {
         "qo": "the",
