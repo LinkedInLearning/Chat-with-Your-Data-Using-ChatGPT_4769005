@@ -164,10 +164,10 @@ async def main():
     session = SQLiteSession("voynich_chapter_01_chat", str(db_path))
 
     # One-time bootstrap so the chat feels grounded
-    await bootstrap_session(session)
+    # TODO: Start the boot_strap session 
 
     # Start interactive chat
-    await chat_loop(session)
+    # TODO: Start the interactive chat loop
 
 
 if __name__ == "__main__":
