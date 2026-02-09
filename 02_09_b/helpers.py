@@ -1,0 +1,69 @@
+from schema import ResearchOutput
+from pydantic import ValidationError
+import json
+from pathlib import Path
+from typing import List, Tuple
+import base64
+
+# ---------------------------------------------------------------------------
+# Pretty Print Helper
+# ---------------------------------------------------------------------------
+def print_fields(data):
+    if isinstance(data, str):
+        try:
+            data = ResearchOutput(**json.loads(data))
+        except (json.JSONDecodeError, ValidationError):
+            print("Raw output:", data)
+            return
+
+    print("\nObservations:")
+    for item in data.observations:
+        print(f"- {item}")
+
+    print("\nHypotheses:")
+    for item in data.hypotheses:
+        print(f"- {item}")
+
+    print("\nSuggested Next Steps:")
+    for item in data.next_steps:
+        print(f"- {item}")
+
+# ---------------------------------------------------------------------------
+# Helpers: Load images as data URLs (for vision inputs)
+# ---------------------------------------------------------------------------
+
+def to_data_url(image_path: Path) -> str:
+    ext = image_path.suffix.lower()
+    if ext == ".png":
+        mime = "image/png"
+    elif ext in [".jpg", ".jpeg"]:
+        mime = "image/jpeg"
+    else:
+        raise ValueError(f"Unsupported image type: {image_path.name}")
+
+    b64 = base64.b64encode(image_path.read_bytes()).decode("utf-8")
+    return f"data:{mime};base64,{b64}"
+
+
+def load_chapter_images(limit: int = 5) -> list[tuple[str, str]]:
+    BASE_DIR = Path(__file__).parent
+    DATA_DIR = BASE_DIR.parent / "data" / "voynich_chapter_01" 
+
+    if not DATA_DIR.exists():
+        raise FileNotFoundError(
+            f"Data directory not found at: {DATA_DIR}\n"
+            "Expected: project-root/data/voynich_chapter_01/"
+        )
+
+    image_paths = sorted(
+        [p for p in DATA_DIR.iterdir() if p.suffix.lower() in [".png", ".jpg", ".jpeg"]]
+    )
+
+    if not image_paths:
+        raise FileNotFoundError(
+            f"No images found in: {DATA_DIR}\n"
+            "Add files like page_01.png, page_02.png, etc."
+        )
+
+    selected = image_paths[:limit]
+    return [(p.name, to_data_url(p)) for p in selected]
