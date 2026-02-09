@@ -82,9 +82,7 @@ async def main():
             {
                 "type": "input_text",
                 "text": (
-                    "Review these manuscript pages as a single chapter. "
-                    "Identify recurring symbols, layout patterns, and structural similarities. "
-                    "Do not attempt translation."
+                    # TODO: Prepare a task prompt that tells the agent how to analyze the chapter.
                 ),
             }
         ]
