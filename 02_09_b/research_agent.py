@@ -80,19 +80,10 @@ async def main():
 
         # User message contains ONLY the task + the data (images).
         # First prompt: establish initial findings
-        first_prompt = [
-            {
-                "type": "input_text",
-                "text": (
-                    "Review these manuscript pages as a single chapter. "
-                    "Identify recurring symbols, layout patterns, and structural similarities. "
-                    "Do not attempt translation."
-                ),
-            }
-        ]
+        # TODO: Write the first_prompt for your agent
 
         # Second prompt: build on memory without re-supplying images
-        # TODO: Write the second prompt for your agent
+        # TODO: Write the second_prompt for your agent
 
         for _, data_url in chapter_images:
             first_prompt.append({"type": "input_image", "image_url": data_url})
