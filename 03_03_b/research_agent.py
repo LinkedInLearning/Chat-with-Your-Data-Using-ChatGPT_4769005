@@ -106,21 +106,21 @@ async def main():
         # Agentic reasoning loop: Plan -> Execute -> Evaluate -> Repeat
         # -------------------------------------------------------------------
 
-        # TODO: Write the goal for your agent
+        # TODO: Write a clear research goal for your agent
         # goal = ""
         max_steps = 4
 
         print("\n--- Step 1: Agent creates a plan ---\n")
         plan_result = await Runner.run(
             voynich_agent,
-            build_plan_prompt(goal),
+            #TODO: Ask the agent to generate a short plan for achieving the goal
+            # using the build_plan_prompt function.
             session=session
         )
         plan_text = plan_result.final_output if isinstance(plan_result.final_output, str) else str(plan_result.final_output)
         print(plan_text)
 
-        # TODO: Use the parse_numbered_plan(plan_text) function to determine the plan_steps
-        # plan_steps = 
+        plan_steps = parse_numbered_plan(plan_text)
         plan_steps = plan_steps[:max_steps]
 
         for i, step in enumerate(plan_steps, start=1):
@@ -142,15 +142,15 @@ async def main():
             print(f"\n--- Step 3.{i}: Evaluate progress ---\n")
             eval_result = await Runner.run(
                 voynich_agent,
-                build_evaluate_prompt(goal, last_output),
+                # TODO: Tell the agent to evaluate it's progress toward the goal
+                # using the build_evaluate_prompt function
                 session=session
             )
             eval_text = eval_result.final_output if isinstance(eval_result.final_output, str) else str(eval_result.final_output)
             print(eval_text)
 
-            if not should_continue(eval_text):
-                print("\nStopping loop based on evaluation.\n")
-                break
+            #TODO Determine if the loop should terminate using the 
+            # should_continue function
     except Exception as e:
         print("Error", e)
 
