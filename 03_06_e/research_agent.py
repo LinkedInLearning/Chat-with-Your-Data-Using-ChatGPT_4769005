@@ -55,7 +55,7 @@ mission_text = MISSION_PATH.read_text().strip()
 # ---------------------------------------------------------------------------
 voynich_agent = Agent(
     name="Voynich Research Agent",
-    model="gpt-5.2",
+    model="gpt-5.4",
     instructions=(
         f"{mission_text}\n\n"
         "You must follow the mission above at all times.\n"
