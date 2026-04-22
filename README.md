@@ -32,3 +32,7 @@ Run the main demo script to see all lessons in action:
 
 ```bash
 python research_agent.py
+```
+
+
+[lil-thumbnail-url]: https://media.licdn.com/dms/image/v2/D560DAQHCcPWvis_ffA/learning-public-crop_675_1200/B56ZxyEr7OHsAY-/0/1771440357483?e=2147483647&v=beta&t=Z7diLKsoASBRRmoM8iZB22IAH-NS6vRTSIVkxxDk9NM
